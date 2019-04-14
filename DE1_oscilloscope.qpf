@@ -1,0 +1,6 @@
+DATE = "20:09:06 July 06, 2018"
+QUARTUS_VERSION = "15.1.0"
+
+# Revisions
+
+PROJECT_REVISION = "DE1_oscilloscope"

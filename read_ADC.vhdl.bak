@@ -1,0 +1,121 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+-- For now, use 50MHz clock as input (and divide by 2, so 25MHz is used)
+
+entity read_ADC is
+	-- read the previous result, and start measurement again
+	port(
+		clk_50MHz : in std_logic;  -- 50 MHz clock
+		reset : in std_logic;   -- should be active at least 2 50Mhz cycles, so it is not missed by 25MHz process
+
+		/* signals to/from the LTC2308 ADC */
+		ADC_CONVST:	out	std_logic;
+		ADC_DIN:	out	std_logic;
+		ADC_DOUT:	in	std_logic;
+		ADC_SCLK:	out	std_logic;
+
+		
+		/* 12-bit data as read from ADC */
+		data : out std_logic_vector(11 downto 0); -- data from measurement of previous start signal
+		start: in std_logic   -- start converting analogue input signal to a digital value  (<500.000 times per second)
+	);
+end entity read_ADC;
+
+architecture RTL of read_ADC is
+
+	type ADC_sequence_type is (IDLE, pre_SD_B11, SD_B11, OS_B10, S1_B9, S0_B8, UNI_B7, SLP_B6, B5, B4, B3, B2, B1, B0, WAIT_Tacq, CONVST_high);
+	signal clk_25MHz : std_logic := '0';
+	
+begin
+	
+	half_clk : process(clk_50MHz) is
+	begin
+		if rising_edge(clk_50MHz) then
+			clk_25MHz <= not clk_25MHz;
+		end if;
+	end process; -- half_clk
+	
+	
+	
+	run_sequence : process (clk_25MHz) is
+		variable state : ADC_sequence_type := IDLE;
+		variable wait_count : integer range 0 to 12;
+	begin
+		ADC_SCLK <= '0' WHEN (reset = '1') or (state = IDLE) or (state = WAIT_Tacq) or (state = CONVST_high) ELSE
+				    clk_25MHz;    -- note this process is also sensitive to falling edge of clock
+		ADC_CONVST <= '0';
+		
+		if falling_edge(clk_25MHz) then
+			if reset = '1' then
+				state := pre_SD_B11;  -- start a new read-out and measure sequence
+			else
+				ADC_DIN <= '-';  -- default to 0, but typically don't care
+				case state is
+					when IDLE =>
+						if start = '1' then  -- note: start is ignored when we are not ready: first complete conversion
+							state := pre_SD_B11;
+						end if;
+					when pre_SD_B11 =>
+						ADC_DIN <= '1';  -- single-ended (not differential)
+						state := SD_B11;
+					when SD_B11 =>
+						ADC_DIN <= '0';  -- select channel 000 (of 8): LSB
+						data(11) <= ADC_DOUT;
+						state := OS_B10;
+					when OS_B10 =>
+						ADC_DIN <= '0';  -- select channel 000 (of 8): middle
+						data(10) <= ADC_DOUT;
+						state := S1_B9;
+					when S1_B9 =>
+						ADC_DIN <= '0';  -- select channel 000 (of 8): MSB
+						data(9) <= ADC_DOUT;
+						state := S0_B8;
+					when S0_B8 =>
+						ADC_DIN <= '1';  -- UNIpolarmode (not 2's complement)
+						data(8) <= ADC_DOUT;
+						state := UNI_B7;
+					when UNI_B7 =>
+						ADC_DIN <= '0';  -- NAP/SLEEP mode, not used since CONVST is low now
+						data(7) <= ADC_DOUT;
+						state := SLP_B6;
+					when SLP_B6 =>
+						data(6) <= ADC_DOUT;
+						state := B5;
+					when B5 =>
+						data(5) <= ADC_DOUT;
+						state := B4; 
+					when B4 =>
+						data(4) <= ADC_DOUT;
+						state := B3;
+					when B3 =>
+						data(3) <= ADC_DOUT;
+						state := B2;
+					when B2 =>
+						data(2) <= ADC_DOUT;
+						state := B1;
+					when B1 =>
+						data(1) <= ADC_DOUT;
+						state := B0;
+					when B0 =>
+						data(0) <= ADC_DOUT;
+						wait_count := 2;  -- 240 ns Tacq after bit 7, so 5 bits = 5/25MHz = 200 ns, so only 40 ns needed (wait_count=1)
+						state := WAIT_Tacq;
+					when WAIT_Tacq =>
+						if wait_count = 0 then
+							state := CONVST_high;
+						else
+							wait_count := wait_count -1;
+						end if;
+					when CONVST_high =>
+						ADC_CONVST <= '1';
+						state := IDLE;
+				end case;
+			end if; -- reset
+		end if;   -- rising clk_25MHz
+	end process;
+
+
+end architecture RTL;
+

@@ -1,0 +1,84 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity test_read_ADC is
+end entity test_read_ADC;
+
+architecture test of test_read_ADC is
+
+
+	component read_ADC port(
+		clk_50MHz : in std_logic;  -- 50 MHz clock
+		reset : in std_logic;   -- should be active at least 2 50Mhz cycles, so it is not missed by 25MHz process
+
+		/* signals to/from the LTC2308 ADC */
+		ADC_CONVST:	out	std_logic;
+		ADC_DIN:	out	std_logic;
+		ADC_DOUT:	in	std_logic;
+		ADC_SCLK:	out	std_logic;
+
+		
+		/* 12-bit data as read from ADC */
+		data : out std_logic_vector(11 downto 0); -- data from measurement of previous start signal
+		data_valid : out std_logic;
+		start: in std_logic   -- start converting analogue input signal to a digital value  (<500.000 times per second)
+	);
+	end component read_ADC;
+
+
+	signal ADC_CONVST:	std_logic;
+	signal ADC_DIN:		std_logic;
+	signal ADC_DOUT:	std_logic;
+	signal ADC_SCLK:	std_logic;
+
+	signal clk:	std_logic;
+	signal reset : std_logic;
+
+	signal data : std_logic_vector(11 downto 0);
+	signal data_valid : std_logic;
+	signal start : std_logic;
+
+begin
+	clock_driver : process
+		constant period : time := 20 ns;
+	begin
+		clk <= '0';
+		wait for period / 2;
+		clk <= '1';
+		wait for period / 2;
+	end process clock_driver;
+
+	ADC_DOUT_driver : process
+		constant period : time := 80 ns;
+	begin
+		wait for 100 ns;
+		ADC_DOUT <= '0';
+		wait for period;
+		ADC_DOUT <= '1';
+		wait for period / 2;
+	end process ADC_DOUT_driver;
+
+	simulate: process
+		variable i : integer;
+	begin
+		reset <= '1';
+		start <= '0';
+		wait for 115 ns;
+		reset <= '0';
+		wait for 735 ns;
+		for i in 0 to 10 loop
+			start <= '1';
+			wait for 40 ns;
+			start <= '0';
+			wait for 3 ms;
+		end loop;
+	end process simulate;
+
+	sut :  read_ADC port map(
+			clk, reset,
+			ADC_CONVST, ADC_DIN,  ADC_DOUT, ADC_SCLK,
+			data, data_valid, start );
+
+
+end architecture test;

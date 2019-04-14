@@ -1,0 +1,43 @@
+
+State Machine - |DE1_oscilloscope|control_mode
+Name control_mode.CONTROL_MODE_MIN_ADC control_mode.CONTROL_MODE_MAX_ADC control_mode.CONTROL_MODE_TRIGGER_LEVEL control_mode.CONTROL_MODE_TIME_PER_DIV control_mode.CONTROL_MODE_FREQUENCY control_mode.CONTROL_MODE_ACTUAL_V 
+control_mode.CONTROL_MODE_ACTUAL_V 0 0 0 0 0 0 
+control_mode.CONTROL_MODE_FREQUENCY 0 0 0 0 1 1 
+control_mode.CONTROL_MODE_TIME_PER_DIV 0 0 0 1 0 1 
+control_mode.CONTROL_MODE_TRIGGER_LEVEL 0 0 1 0 0 1 
+control_mode.CONTROL_MODE_MAX_ADC 0 1 0 0 0 1 
+control_mode.CONTROL_MODE_MIN_ADC 1 0 0 0 0 1 
+
+State Machine - |DE1_oscilloscope|read_ADC:readADC|\run_sequence:state
+Name \run_sequence:state.CONVST_2_down \run_sequence:state.CONVST_1_down \run_sequence:state.WAIT_Tacq1_down \run_sequence:state.WAIT_Tacq2_down \run_sequence:state.AFTER_B0_down \run_sequence:state.GET_B0_up \run_sequence:state.AFTER_B1_down \run_sequence:state.GET_B1_up \run_sequence:state.AFTER_B2_down \run_sequence:state.GET_B2_up \run_sequence:state.AFTER_B3_down \run_sequence:state.GET_B3_up \run_sequence:state.AFTER_B4_down \run_sequence:state.GET_B4_up \run_sequence:state.AFTER_B5_down \run_sequence:state.GET_B5_up \run_sequence:state.AFTER_B6_down \run_sequence:state.GET_B6_up \run_sequence:state.SET_SLP_down \run_sequence:state.GET_B7_up \run_sequence:state.SET_UNI_down \run_sequence:state.GET_B8_up \run_sequence:state.SET_S0_down \run_sequence:state.GET_B9_up \run_sequence:state.SET_S1_down \run_sequence:state.get_B10_up \run_sequence:state.SET_OS_down \run_sequence:state.GET_B11_up \run_sequence:state.SET_SD_down \run_sequence:state.WAIT_Tconv_down \run_sequence:state.AFTER_INIT_down 
+\run_sequence:state.AFTER_INIT_down 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+\run_sequence:state.WAIT_Tconv_down 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+\run_sequence:state.SET_SD_down 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+\run_sequence:state.GET_B11_up 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+\run_sequence:state.SET_OS_down 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+\run_sequence:state.get_B10_up 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+\run_sequence:state.SET_S1_down 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+\run_sequence:state.GET_B9_up 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+\run_sequence:state.SET_S0_down 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+\run_sequence:state.GET_B8_up 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.SET_UNI_down 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.GET_B7_up 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.SET_SLP_down 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.GET_B6_up 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.AFTER_B6_down 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.GET_B5_up 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.AFTER_B5_down 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.GET_B4_up 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.AFTER_B4_down 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.GET_B3_up 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.AFTER_B3_down 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.GET_B2_up 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.AFTER_B2_down 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.GET_B1_up 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.AFTER_B1_down 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.GET_B0_up 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.AFTER_B0_down 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.WAIT_Tacq2_down 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.WAIT_Tacq1_down 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.CONVST_1_down 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\run_sequence:state.CONVST_2_down 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="simulation/video_clock_for_DE.vhd" type="VHDL" />
+ <topLevel name="video_clock_for_DE" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

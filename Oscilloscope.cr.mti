@@ -1,0 +1,45 @@
+C:/Users/Theo/Documents/DE1SoC_SystemBuilder/CodeGenerated/DE1_SOC/DE1_oscilloscope/test_read_ADC.vhdl {1 {vcom -work work -2008 -explicit -stats=none C:/Users/Theo/Documents/DE1SoC_SystemBuilder/CodeGenerated/DE1_SOC/DE1_oscilloscope/test_read_ADC.vhdl
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity test_read_ADC
+-- Compiling architecture test of test_read_ADC
+
+} {} {}} C:/Users/Theo/Documents/DE1SoC_SystemBuilder/CodeGenerated/DE1_SOC/DE1_oscilloscope/test_oscilloscope.vhdl {1 {vcom -work work -2008 -explicit -stats=none C:/Users/Theo/Documents/DE1SoC_SystemBuilder/CodeGenerated/DE1_SOC/DE1_oscilloscope/test_oscilloscope.vhdl
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity test_oscilloscope
+-- Compiling architecture test of test_oscilloscope
+
+} {} {}} C:/Users/Theo/Documents/DE1SoC_SystemBuilder/CodeGenerated/DE1_SOC/DE1_oscilloscope/read_ADC.vhdl {1 {vcom -work work -2008 -explicit -stats=none C:/Users/Theo/Documents/DE1SoC_SystemBuilder/CodeGenerated/DE1_SOC/DE1_oscilloscope/read_ADC.vhdl
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity read_ADC
+-- Compiling architecture RTL of read_ADC
+
+} {} {}} C:/Users/Theo/Documents/DE1SoC_SystemBuilder/CodeGenerated/DE1_SOC/DE1_oscilloscope/XYdisplay.vhdl {1 {vcom -work work -2008 -explicit -source -stats=none C:/Users/Theo/Documents/DE1SoC_SystemBuilder/CodeGenerated/DE1_SOC/DE1_oscilloscope/XYdisplay.vhdl
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity XYdisplay
+-- Compiling architecture RTL of XYdisplay
+
+} {} {}} C:/Users/Theo/Documents/DE1SoC_SystemBuilder/CodeGenerated/DE1_SOC/DE1_oscilloscope/DE1_oscilloscope.vhdl {1 {vcom -work work -2008 -explicit -source -stats=none C:/Users/Theo/Documents/DE1SoC_SystemBuilder/CodeGenerated/DE1_SOC/DE1_oscilloscope/DE1_oscilloscope.vhdl
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity DE1_oscilloscope
+-- Compiling architecture structure of DE1_oscilloscope
+
+} {} {}}

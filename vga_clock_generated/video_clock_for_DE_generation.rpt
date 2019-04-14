@@ -1,0 +1,59 @@
+Info: Starting: Create simulation model
+Info: qsys-generate C:\Users\Theo\Documents\DE1SoC_SystemBuilder\CodeGenerated\DE1_SOC\DE1_oscilloscope\video_clock_for_DE.qsys --simulation=VHDL --allow-mixed-language-simulation --output-directory=C:\Users\Theo\Documents\DE1SoC_SystemBuilder\CodeGenerated\DE1_SOC\DE1_oscilloscope\vga_clock_generated\simulation --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading DE1_oscilloscope/video_clock_for_DE.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 17.1]
+Progress: Parameterizing module clk_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: video_clock_for_DE: Generating video_clock_for_DE "video_clock_for_DE" for SIM_VHDL
+Info: video_clock_for_DE: Done "video_clock_for_DE" with 1 modules, 1 files
+Info: qsys-generate succeeded.
+Info: Finished: Create simulation model
+Info: Starting: Create Modelsim Project.
+Info: sim-script-gen --spd=C:\Users\Theo\Documents\DE1SoC_SystemBuilder\CodeGenerated\DE1_SOC\DE1_oscilloscope\vga_clock_generated\video_clock_for_DE.spd --output-directory=C:/Users/Theo/Documents/DE1SoC_SystemBuilder/CodeGenerated/DE1_SOC/DE1_oscilloscope/vga_clock_generated/simulation/ --use-relative-paths=true
+Info: Doing: ip-make-simscript --spd=C:\Users\Theo\Documents\DE1SoC_SystemBuilder\CodeGenerated\DE1_SOC\DE1_oscilloscope\vga_clock_generated\video_clock_for_DE.spd --output-directory=C:/Users/Theo/Documents/DE1SoC_SystemBuilder/CodeGenerated/DE1_SOC/DE1_oscilloscope/vga_clock_generated/simulation/ --use-relative-paths=true
+Info: Generating the following file(s) for MODELSIM simulator in C:/Users/Theo/Documents/DE1SoC_SystemBuilder/CodeGenerated/DE1_SOC/DE1_oscilloscope/vga_clock_generated/simulation/ directory:
+Info: 	mentor/msim_setup.tcl
+Info: Skipping VCS script generation since VHDL file $QUARTUS_INSTALL_DIR/eda/sim_lib/altera_syn_attributes.vhd is required for simulation
+Info: Generating the following file(s) for VCSMX simulator in C:/Users/Theo/Documents/DE1SoC_SystemBuilder/CodeGenerated/DE1_SOC/DE1_oscilloscope/vga_clock_generated/simulation/ directory:
+Info: 	synopsys/vcsmx/synopsys_sim.setup
+Info: 	synopsys/vcsmx/vcsmx_setup.sh
+Info: Generating the following file(s) for NCSIM simulator in C:/Users/Theo/Documents/DE1SoC_SystemBuilder/CodeGenerated/DE1_SOC/DE1_oscilloscope/vga_clock_generated/simulation/ directory:
+Info: 	cadence/cds.lib
+Info: 	cadence/hdl.var
+Info: 	cadence/ncsim_setup.sh
+Info: Generating the following file(s) for RIVIERA simulator in C:/Users/Theo/Documents/DE1SoC_SystemBuilder/CodeGenerated/DE1_SOC/DE1_oscilloscope/vga_clock_generated/simulation/ directory:
+Info: 	aldec/rivierapro_setup.tcl
+Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under C:/Users/Theo/Documents/DE1SoC_SystemBuilder/CodeGenerated/DE1_SOC/DE1_oscilloscope/vga_clock_generated/simulation/.
+Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info: Finished: Create Modelsim Project.
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\Theo\Documents\DE1SoC_SystemBuilder\CodeGenerated\DE1_SOC\DE1_oscilloscope\video_clock_for_DE.qsys --block-symbol-file --output-directory=C:\Users\Theo\Documents\DE1SoC_SystemBuilder\CodeGenerated\DE1_SOC\DE1_oscilloscope\vga_clock_generated --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading DE1_oscilloscope/video_clock_for_DE.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 17.1]
+Progress: Parameterizing module clk_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\Theo\Documents\DE1SoC_SystemBuilder\CodeGenerated\DE1_SOC\DE1_oscilloscope\video_clock_for_DE.qsys --synthesis=VHDL --output-directory=C:\Users\Theo\Documents\DE1SoC_SystemBuilder\CodeGenerated\DE1_SOC\DE1_oscilloscope\vga_clock_generated\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading DE1_oscilloscope/video_clock_for_DE.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 17.1]
+Progress: Parameterizing module clk_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: video_clock_for_DE: Generating video_clock_for_DE "video_clock_for_DE" for QUARTUS_SYNTH
+Info: video_clock_for_DE: Done "video_clock_for_DE" with 1 modules, 1 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

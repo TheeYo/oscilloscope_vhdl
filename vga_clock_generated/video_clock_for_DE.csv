@@ -1,0 +1,16 @@
+# system info video_clock_for_DE on 2018.07.24.22:10:48
+system_info:
+name,value
+DEVICE,5CSEMA5F31C6
+DEVICE_FAMILY,Cyclone V
+GENERATION_ID,1532463047
+#
+#
+# Files generated for video_clock_for_DE on 2018.07.24.22:10:48
+files:
+filepath,kind,attributes,module,is_top
+simulation/video_clock_for_DE.vhd,VHDL,,video_clock_for_DE,true
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module

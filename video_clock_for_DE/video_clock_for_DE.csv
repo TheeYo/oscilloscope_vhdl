@@ -1,0 +1,22 @@
+# system info video_clock_for_DE on 2018.07.24.21:54:23
+system_info:
+name,value
+DEVICE,5CSEMA5F31C6
+DEVICE_FAMILY,Cyclone V
+GENERATION_ID,1532461993
+#
+#
+# Files generated for video_clock_for_DE on 2018.07.24.21:54:23
+files:
+filepath,kind,attributes,module,is_top
+simulation/video_clock_for_DE.vhd,VHDL,,video_clock_for_DE,true
+simulation/submodules/video_clock_for_DE_video_pll_0.vhd,VHDL,,video_clock_for_DE_video_pll_0,false
+simulation/submodules/video_clock_for_DE_video_pll_0_video_pll.vo,VERILOG,,video_clock_for_DE_video_pll_0_video_pll,false
+simulation/submodules/altera_up_avalon_reset_from_locked_signal.v,VERILOG,,altera_up_avalon_reset_from_locked_signal,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+video_clock_for_DE.video_pll_0,video_clock_for_DE_video_pll_0
+video_clock_for_DE.video_pll_0.video_pll,video_clock_for_DE_video_pll_0_video_pll
+video_clock_for_DE.video_pll_0.reset_from_locked,altera_up_avalon_reset_from_locked_signal
